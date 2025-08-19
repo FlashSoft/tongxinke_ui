@@ -1,0 +1,115 @@
+.layui-tab-item {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* Base sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+/* Desktop styles - sidebar pushes content */
+@media (min-width: 768px) {
+    .sidebar {
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+    
+    .main-content {
+        transition: all 0.3s ease;
+    }
+    
+    .main-content.pushed {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+}
+
+/* Mobile styles - sidebar overlays content */
+@media (max-width: 767px) {
+    .sidebar {
+        z-index: 1001;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+.sidebar-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Position for desktop toggle */
+.sidebar-toggle.desktop-only {
+    left: 260px;
+}
+
+@media (max-width: 767px) {
+    .sidebar-toggle.mobile-only {
+        left: 20px;
+    }
+    
+    .sidebar-toggle.desktop-only {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar-toggle.mobile-only {
+        display: none;
+    }
+}
+
+.sidebar .layui-nav {
+    width: 100%;
+    background-color: #fff;
+}
+
+.sidebar .layui-nav .layui-nav-item a {
+    color: #333;
+}
+
+.sidebar .layui-nav .layui-nav-item.layui-this a,
+.sidebar .layui-nav .layui-nav-item a:hover {
+    color: #009688;
+}
+
+.sidebar .layui-nav .layui-nav-item.layui-this:after {
+    background-color: #009688;
+}
+
+.layui-tab-title {
+    display: none;
+}
